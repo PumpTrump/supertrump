@@ -90,15 +90,12 @@
     <!-- Primer botón y campo oculto -->
     <input type="text" id="mensaje1" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
     <div class="mbr-section-btn item-footer">
-        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje1')" class="btn item-btn btn-primary display-7">Copy Address</a>
+        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje1', 'confirmacion1')" class="btn item-btn btn-primary display-7">Copy Address</a>
     </div>
-
-
-    <!-- Mensaje de confirmación -->
-    <p id="confirmacion" style="color: white; display: none;">text copied to clipboard!</p>
+    <p id="confirmacion1" style="color: white; display: none;">text copied to clipboard</p>
 
     <script>
-        function copiarAlPortapapeles(event, mensajeId) {
+        function copiarAlPortapapeles(event, mensajeId, confirmacionId) {
             // Evitar el comportamiento predeterminado del enlace
             event.preventDefault();
 
@@ -108,12 +105,13 @@
             // Copiar el texto al portapapeles usando la API moderna
             navigator.clipboard.writeText(mensaje)
                 .then(() => {
-                    // Mostrar el mensaje de confirmación sin alert
-                    document.getElementById("confirmacion").style.display = "block";
+                    // Mostrar el mensaje de confirmación correspondiente
+                    var confirmacion = document.getElementById(confirmacionId);
+                    confirmacion.style.display = "block";
                     
                     // Ocultar el mensaje de confirmación después de unos segundos
                     setTimeout(() => {
-                        document.getElementById("confirmacion").style.display = "none";
+                        confirmacion.style.display = "none";
                     }, 2000); // Tiempo en milisegundos (2 segundos)
                 })
                 .catch(err => {
@@ -294,21 +292,15 @@
 				<div class="mbr-section-head mb-5">
 					<h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>How to buy</strong></h4>
 					<!-- <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-4 display-7">Hover over pictures to add more cards or rearrange them with the Tools panel. Add multiple cards by selecting multiple images. You can set the number of columns in Block Parameters.</h5> -->				
-					    <!-- Campo de entrada oculto con el texto a copiar -->
-    <input type="text" id="mensaje" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
-
     <!-- Segundo botón y campo oculto -->
-    <input type="text" id="mensaje2" value="https://example.com" readonly style="display: none;">
+    <input type="text" id="mensaje2" value="00x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
     <div class="mbr-section-btn item-footer">
-        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje2')" class="btn item-btn btn-primary display-7">Copy Address 2</a>
+        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje2', 'confirmacion2')" class="btn item-btn btn-primary display-7">CA</a>
     </div>
-
-
-    <!-- Mensaje de confirmación -->
-    <p id="confirmacion" style="color: white; display: none;">text copied to clipboard!</p>
+<p id="confirmacion2" style="color: white; display: none; text-align: center; margin-top: 10px;">text copied to clipboard!</p>
 
     <script>
-        function copiarAlPortapapeles(event, mensajeId) {
+        function copiarAlPortapapeles(event, mensajeId, confirmacionId) {
             // Evitar el comportamiento predeterminado del enlace
             event.preventDefault();
 
@@ -318,19 +310,20 @@
             // Copiar el texto al portapapeles usando la API moderna
             navigator.clipboard.writeText(mensaje)
                 .then(() => {
-                    // Mostrar el mensaje de confirmación sin alert
-                    document.getElementById("confirmacion").style.display = "block";
+                    // Mostrar el mensaje de confirmación correspondiente
+                    var confirmacion = document.getElementById(confirmacionId);
+                    confirmacion.style.display = "block";
                     
                     // Ocultar el mensaje de confirmación después de unos segundos
                     setTimeout(() => {
-                        document.getElementById("confirmacion").style.display = "none";
+                        confirmacion.style.display = "none";
                     }, 2000); // Tiempo en milisegundos (2 segundos)
                 })
                 .catch(err => {
                     console.error("Error al copiar: ", err);
                 });
         }
-    </script>	
+    </script>
 				</div>
 			</div>
 		</div>
