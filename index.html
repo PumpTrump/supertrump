@@ -87,21 +87,23 @@
 					&nbsp;<br></p>
 				
 			</div>
-    <!-- Campo de entrada oculto con el texto a copiar -->
-    <input type="text" id="mensaje" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
-
-    <!-- Botón que llama a la función de copiar -->
+    <!-- Primer botón y campo oculto -->
+    <input type="text" id="mensaje1" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
     <div class="mbr-section-btn item-footer">
-        <a href="#" onclick="copiarAlPortapapeles()" class="btn item-btn btn-primary display-7">Copy Address</a>
+        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje1')" class="btn item-btn btn-primary display-7">Copy Address</a>
     </div>
-    
+
+
     <!-- Mensaje de confirmación -->
-    <p id="confirmacion" style="color: rgb(255, 255, 255); display: none;">text copied to clipboard!</p>
+    <p id="confirmacion" style="color: white; display: none;">text copied to clipboard!</p>
 
     <script>
-        function copiarAlPortapapeles() {
+        function copiarAlPortapapeles(event, mensajeId) {
+            // Evitar el comportamiento predeterminado del enlace
+            event.preventDefault();
+
             // Obtener el texto del campo oculto
-            var mensaje = document.getElementById("mensaje").value;
+            var mensaje = document.getElementById(mensajeId).value;
             
             // Copiar el texto al portapapeles usando la API moderna
             navigator.clipboard.writeText(mensaje)
@@ -295,21 +297,23 @@
 					    <!-- Campo de entrada oculto con el texto a copiar -->
     <input type="text" id="mensaje" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
 
-    <!-- Campo de entrada oculto con el texto a copiar -->
-    <input type="text" id="mensaje" value="0x07778c054f99a238196016e58f7106b7f8e22919951c856bae9dc69a34af0396::supert::SUPERT" readonly style="display: none;">
-
-    <!-- Botón que llama a la función de copiar -->
+    <!-- Segundo botón y campo oculto -->
+    <input type="text" id="mensaje2" value="https://example.com" readonly style="display: none;">
     <div class="mbr-section-btn item-footer">
-        <a href="#" onclick="copiarAlPortapapeles()" class="btn item-btn btn-primary display-7">CA</a>
+        <a href="#" onclick="copiarAlPortapapeles(event, 'mensaje2')" class="btn item-btn btn-primary display-7">Copy Address 2</a>
     </div>
-    
+
+
     <!-- Mensaje de confirmación -->
-    <p id="confirmacion" style="color: rgb(255, 255, 255); display: none;">text copied to clipboard!</p>
+    <p id="confirmacion" style="color: white; display: none;">text copied to clipboard!</p>
 
     <script>
-        function copiarAlPortapapeles() {
+        function copiarAlPortapapeles(event, mensajeId) {
+            // Evitar el comportamiento predeterminado del enlace
+            event.preventDefault();
+
             // Obtener el texto del campo oculto
-            var mensaje = document.getElementById("mensaje").value;
+            var mensaje = document.getElementById(mensajeId).value;
             
             // Copiar el texto al portapapeles usando la API moderna
             navigator.clipboard.writeText(mensaje)
